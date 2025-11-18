@@ -1,9 +1,13 @@
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, Platform, ScrollView } from 'react-native';
 
 const SpeedHotFruitDashLayout = ({ children }) => {
   return (
     <ImageBackground
-      source={require('../../assets/images/fruitdashbg.png')}
+      source={
+        Platform.OS === 'ios'
+          ? require('../../assets/images/fruitdashbg.png')
+          : require('../../assets/images/andrbg.png')
+      }
       style={{ flex: 1 }}
     >
       <ScrollView

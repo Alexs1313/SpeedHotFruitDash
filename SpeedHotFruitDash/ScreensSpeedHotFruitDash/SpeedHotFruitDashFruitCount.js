@@ -8,6 +8,7 @@ import {
   Dimensions,
   Share,
   Alert,
+  Platform,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -280,9 +281,22 @@ const SpeedHotFruitDashFruitCount = () => {
             <Text style={styles.fruitDashHeaderTitle}>Fruit Count</Text>
           </View>
 
-          <Image
-            source={require('../../assets/images/fruitdashheadlogo.png')}
-          />
+          {Platform.OS === 'ios' ? (
+            <Image
+              source={require('../../assets/images/fruitdashheadlogo.png')}
+            />
+          ) : (
+            <Image
+              source={require('../../assets/images/andricon.png')}
+              style={{
+                width: 74.84,
+                height: 74.84,
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: '#F1B931',
+              }}
+            />
+          )}
         </View>
 
         {fruitDashGamePhase === 'intro' && !fruitDashHasSeenIntro && (

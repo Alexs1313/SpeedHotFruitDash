@@ -1,6 +1,7 @@
 import {
   Dimensions,
   Image,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -17,10 +18,21 @@ const SpeedHotFruitDashHome = () => {
   return (
     <SpeedHotFruitDashLayout>
       <View style={styles.fruitDashWrap}>
-        <Image
-          source={require('../../assets/images/fruitdashhomelogo.png')}
-          style={{ borderRadius: 25 }}
-        />
+        {Platform.OS === 'ios' ? (
+          <Image
+            source={require('../../assets/images/fruitdashhomelogo.png')}
+            style={{ borderRadius: 25 }}
+          />
+        ) : (
+          <Image
+            source={require('../../assets/images/andricon.png')}
+            style={{
+              borderRadius: 25,
+              width: 250,
+              height: 250,
+            }}
+          />
+        )}
 
         <View style={styles.fruitDashBtnsWrap}>
           <TouchableOpacity

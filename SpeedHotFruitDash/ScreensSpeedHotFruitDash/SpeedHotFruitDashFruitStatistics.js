@@ -9,6 +9,7 @@ import {
   ScrollView,
   Share,
   Alert,
+  Platform,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import SpeedHotFruitDashLayout from '../ComponentsSpeedHotFruitDash/SpeedHotFruitDashLayout';
@@ -117,9 +118,22 @@ Average response time: ${entry.avgTime} sec`,
               <Text style={styles.fruitDashHeaderTitle}>Statistics</Text>
             </View>
 
-            <Image
-              source={require('../../assets/images/fruitdashheadlogo.png')}
-            />
+            {Platform.OS === 'ios' ? (
+              <Image
+                source={require('../../assets/images/fruitdashheadlogo.png')}
+              />
+            ) : (
+              <Image
+                source={require('../../assets/images/andricon.png')}
+                style={{
+                  width: 74.84,
+                  height: 74.84,
+                  borderRadius: 16,
+                  borderWidth: 1,
+                  borderColor: '#F1B931',
+                }}
+              />
+            )}
           </View>
 
           <View style={styles.fruitDashAvgBox}>
@@ -380,17 +394,19 @@ const styles = StyleSheet.create({
   fruitDashCardText: {
     color: '#fff',
     fontSize: 15,
-    marginBottom: 30,
     fontFamily: 'Montserrat-Medium',
   },
   fruitDashCardNumber: {
     fontFamily: 'Montserrat-SemiBold',
-    fontSize: 20,
+    fontSize: 17,
     color: '#fff',
   },
   fruitDashCardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 30,
+    flexWrap: 'wrap',
   },
   fruitDashCardActions: {
     flexDirection: 'row',

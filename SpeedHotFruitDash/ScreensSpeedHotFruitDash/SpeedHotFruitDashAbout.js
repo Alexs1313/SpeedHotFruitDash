@@ -2,6 +2,7 @@ import {
   Alert,
   Dimensions,
   Image,
+  Platform,
   Share,
   StyleSheet,
   Text,
@@ -19,7 +20,14 @@ const SpeedHotFruitDashAbout = () => {
   const shareFruitDashInfo = async () => {
     try {
       await Share.share({
-        message: `Speed Hot Fruit Dash is a fast-paced reflex and attention game where
+        message:
+          Platform.OS === 'ios'
+            ? `Speed Hot Fruit Dash is a fast-paced reflex and attention game where
+every second matters. Choose the fresh fruit, avoid the spoiled
+ones, and challenge your memory by counting how many fruits appear
+on screen. Sharpen your focus, test your speed, and enjoy the fiery
+energy of classic arcade gameplay.`
+            : `888 Hot Speed: Fruit Dash is a fast-paced reflex and attention game where
 every second matters. Choose the fresh fruit, avoid the spoiled
 ones, and challenge your memory by counting how many fruits appear
 on screen. Sharpen your focus, test your speed, and enjoy the fiery
@@ -44,24 +52,58 @@ energy of classic arcade gameplay.`,
           <TouchableOpacity style={styles.fruitdashtextcont}>
             <Text style={styles.fruitdashheadtitletxt}>About</Text>
           </TouchableOpacity>
-          <Image
-            source={require('../../assets/images/fruitdashheadlogo.png')}
-          />
+          {Platform.OS === 'ios' ? (
+            <Image
+              source={require('../../assets/images/fruitdashheadlogo.png')}
+            />
+          ) : (
+            <Image
+              source={require('../../assets/images/andricon.png')}
+              style={{
+                width: 74.84,
+                height: 74.84,
+                borderRadius: 16,
+                borderWidth: 1,
+                borderColor: '#F1B931',
+              }}
+            />
+          )}
         </View>
 
-        <Image
-          source={require('../../assets/images/fruitdashhomelogo.png')}
-          style={{ borderRadius: 25 }}
-        />
+        {Platform.OS === 'ios' ? (
+          <Image
+            source={require('../../assets/images/fruitdashhomelogo.png')}
+            style={{ borderRadius: 25 }}
+          />
+        ) : (
+          <Image
+            source={require('../../assets/images/andricon.png')}
+            style={{
+              width: 250,
+              height: 250,
+              borderRadius: 25,
+            }}
+          />
+        )}
 
         <View style={styles.fruitdashtextaboutcont}>
-          <Text style={styles.fruitdashtitle}>
-            Speed Hot Fruit Dash is a fast-paced reflex and attention game where
-            every second matters. Choose the fresh fruit, avoid the spoiled
-            ones, and challenge your memory by counting how many fruits appear
-            on screen. Sharpen your focus, test your speed, and enjoy the fiery
-            energy of classic arcade gameplay.
-          </Text>
+          {Platform.OS === 'ios' ? (
+            <Text style={styles.fruitdashtitle}>
+              Speed Hot Fruit Dash is a fast-paced reflex and attention game
+              where every second matters. Choose the fresh fruit, avoid the
+              spoiled ones, and challenge your memory by counting how many
+              fruits appear on screen. Sharpen your focus, test your speed, and
+              enjoy the fiery energy of classic arcade gameplay.
+            </Text>
+          ) : (
+            <Text style={styles.fruitdashtitle}>
+              888 Hot Speed: Fruit Dash is a fast-paced reflex and attention
+              game where every second matters. Choose the fresh fruit, avoid the
+              spoiled ones, and challenge your memory by counting how many
+              fruits appear on screen. Sharpen your focus, test your speed, and
+              enjoy the fiery energy of classic arcade gameplay.
+            </Text>
+          )}
         </View>
 
         <TouchableOpacity
