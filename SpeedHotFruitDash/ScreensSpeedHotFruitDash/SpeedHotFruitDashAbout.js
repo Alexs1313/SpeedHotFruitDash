@@ -27,7 +27,7 @@ every second matters. Choose the fresh fruit, avoid the spoiled
 ones, and challenge your memory by counting how many fruits appear
 on screen. Sharpen your focus, test your speed, and enjoy the fiery
 energy of classic arcade gameplay.`
-            : `888 Hot Speed: Fruit Dash is a fast-paced reflex and attention game where
+            : `Hot Speed: Fruit Dash is a fast-paced reflex and attention game where
 every second matters. Choose the fresh fruit, avoid the spoiled
 ones, and challenge your memory by counting how many fruits appear
 on screen. Sharpen your focus, test your speed, and enjoy the fiery
@@ -97,8 +97,8 @@ energy of classic arcade gameplay.`,
             </Text>
           ) : (
             <Text style={styles.fruitdashtitle}>
-              888 Hot Speed: Fruit Dash is a fast-paced reflex and attention
-              game where every second matters. Choose the fresh fruit, avoid the
+              Hot Speed: Fruit Dash is a fast-paced reflex and attention game
+              where every second matters. Choose the fresh fruit, avoid the
               spoiled ones, and challenge your memory by counting how many
               fruits appear on screen. Sharpen your focus, test your speed, and
               enjoy the fiery energy of classic arcade gameplay.
